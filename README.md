@@ -1,4 +1,4 @@
-# mac-object-detection
+# SpectraVision
 This repository is a POC for using object detection with cv2 and YOLOv11
 
 ### For References:
