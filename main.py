@@ -7,9 +7,9 @@ from datetime import datetime
 
 
 class Application:
-    def __init__(self, video_source=1):
+    def __init__(self):
         self.detector = ObjectDetector()
-        self.video_stream = VideoStream(video_source) # Change Source to 1 or 2 if 0 is not working
+        self.video_stream = VideoStream() # Change Source to 1 or 2 if 0 is not working
         self.process = psutil.Process(os.getpid())
         self.start_time = datetime.now()
 
@@ -20,6 +20,9 @@ class Application:
         return f"Time: {elapsed:.1f}s, Memory: {mem.rss / 1024 / 1024:.1f} MB"
 
     def run(self):
+
+        self.video_stream.setup()
+
         while True:
             ret, frame = self.video_stream.read()
             if not ret:
