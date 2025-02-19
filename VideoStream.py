@@ -1,6 +1,5 @@
 import cv2
 
-
 class VideoStream:
     def __init__(self):
         self.cap = None
@@ -20,3 +19,8 @@ class VideoStream:
 
     def release(self):
         self.cap.release()
+
+    def get_infos(self):
+        w, h, fps = (int(self.cap.get(x)) for x in (cv2.CAP_PROP_FRAME_WIDTH, cv2.CAP_PROP_FRAME_HEIGHT, cv2.CAP_PROP_FPS))
+        return w, h, fps
+
