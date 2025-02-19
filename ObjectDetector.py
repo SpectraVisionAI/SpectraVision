@@ -9,7 +9,7 @@ class ObjectDetector:
             model=model_path,
             region=self.regions_points,
             line_width=2,
-            classes=[0],
+            classes=[0, 2],
             conf=conf,
             show_in=True,
             show_out=True,
