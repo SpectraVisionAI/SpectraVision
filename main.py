@@ -38,7 +38,7 @@ class Application:
                 print(f"FPS: {fps:.2f}")
 
             frame = cv2.resize(frame, (1080, 720))
-            detection = self.detector.process_image(frame)
+            detection = self.detector.process_frame(frame)
 
             cv2.imshow("Detection", detection)
             if cv2.waitKey(1) & 0xFF == ord('q'):
