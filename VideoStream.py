@@ -1,21 +1,27 @@
 import cv2
 
 class VideoStream:
-    def __init__(self):
+    def __init__(self, source=None):
         self.cap = None
+        self.source = source
 
     def read(self):
         ret, frame = self.cap.read()
         return ret, frame
 
     def setup(self):
-        for index in range(0, 4):
-            self.cap = cv2.VideoCapture(index)
-            if self.cap.isOpened():
-                print(f"Camera found at index {index}")
-                break
+        if self.source:
+            self.cap = cv2.VideoCapture(self.source)
+            if not self.cap.isOpened():
+                raise RuntimeError(f"Failed to open video file: {self.source}")
         else:
-            raise RuntimeError("No cameras detected")
+            for index in range(0, 4):
+                self.cap = cv2.VideoCapture(index)
+                if self.cap.isOpened():
+                    print(f"Camera found at index {index}")
+                    break
+            else:
+                raise RuntimeError("No cameras detected")
 
     def release(self):
         self.cap.release()
