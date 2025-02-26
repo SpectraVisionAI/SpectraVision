@@ -1,0 +1,35 @@
+User Requirements (Based on Project Brief) 
+•	Take Good Pictures:
+•	Capture clear, detailed pictures.
+•	Work well in different lighting (bright, dim, etc.).
+•	Recognize Objects:
+•	Accurately identify specific things (products, people).
+•	Learn to recognize new things over time.
+•	Make sure the camera is good at recognizing simple objects.
+•	Find and name objects in the picture in real-time.
+•	Send Alerts:
+•	Let users set up alerts for certain objects or events.
+•	Send alerts in different ways (email, text, app).
+•	Manage Data:
+•	Work with existing data systems (if any are used).
+•	Make it easy to find and use the data.
+•	Send data to a central computer (server) using MQTT for later use.
+•	Be Easy to Use:
+•	Have a simple interface for setting up and watching the camera.
+•	Show detected objects and alerts clearly.
+•	Use a dashboard to display the information to the user
+•	Allow Remote Access:
+•	Let users see the camera feed and data from anywhere.
+•	Allow users to change camera settings remotely.
+•	Do Specific Tasks:
+•	Smart Alarm: See if it's possible to use the camera as a smart alarm.
+•	People Counter: Count how many people go into a place.
+•	Water Monitoring: Watch for water being dumped into rivers.
+•	Sewer Monitoring: Watch a sewer valve remotely.
+•	Monitor Water Companies: to monitor the times and durations that they discharge any untreated sewage into the river network.
+•	Use the Right Model:
+•	Validate the performance of the camera for simple object recognition. This will include some academic content in the field of machine learning and computer vision.
+•	Consider YOLO for recognizing objects.
+•	Label Data:
+•	Use tools like LabelImg to label the images and draw boxes around the objects of interest.
+
