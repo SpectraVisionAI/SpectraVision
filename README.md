@@ -40,3 +40,17 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+
+
+### Docker Compose 
+
+1. You need to have Docker Desktop
+2. Then run 
+    ```bash
+    docker compose up -d 
+    ```
+3. Now Start the Project
+
+> [!NOTE]
+>
+>You can open the grafana Dashboard on http://localhost:3000/d/EaSfNcTHk/object-count?orgId=1&from=now-5m&to=now Username: admin PW: admin
