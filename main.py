@@ -8,12 +8,13 @@ import os
 from datetime import datetime
 
 class Application:
-    def __init__(self):
-        self.detector = ObjectDetector()
-        self.video_stream = VideoStream("vids/IMG_9746.MOV")  # Change source if needed
+    def __init__(self, video_stream=None, detector=None):
+        self.detector = detector or ObjectDetector()
+        self.video_stream = video_stream or VideoStream("vids/IMG_9746.MOV")
         self.process = psutil.Process(os.getpid())
         self.start_time = datetime.now()
         self.last_memory_print = 0
+
 
     def get_memory_usage(self):
         mem = self.process.memory_info()

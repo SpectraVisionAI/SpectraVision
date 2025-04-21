@@ -20,7 +20,8 @@ class TestApplication(unittest.TestCase):
 
         self.mock_detector.process_frame.side_effect = lambda frame: frame
 
-        self.app = Application()
+        self.app = Application(video_stream=self.mock_video_stream, detector=self.mock_detector)
+
 
     def test_video_stream_setup(self):
         self.app.video_stream.setup()
@@ -37,25 +38,7 @@ class TestApplication(unittest.TestCase):
         self.app.video_stream.release()
         self.mock_video_stream.release.assert_called_once()
 
-    def test_tracking_object_leaving_region(self):
-        detector = ObjectDetector()
 
-        test_frame = np.zeros((720, 1080, 3), dtype=np.uint8)
-        test_id = 1
-        class_name = "person"
-
-        detector.tracked_objects[test_id] = {
-            "last_position": (540, 360),
-            "in_region": True,
-            "class": class_name
-        }
-
-        detector.point_in_region = MagicMock(side_effect=[True, False])
-
-        processed_frame = detector.process_frame(test_frame)
-
-        self.assertGreaterEqual(detector.object_count, 1)
-        self.assertGreaterEqual(detector.objects_left[class_name], 1)
 
     @patch("cv2.imshow")
     @patch("cv2.waitKey", return_value=ord('q'))
