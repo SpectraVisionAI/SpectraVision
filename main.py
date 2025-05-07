@@ -10,7 +10,7 @@ from datetime import datetime
 class Application:
     def __init__(self, video_stream=None, detector=None):
         self.detector = detector or ObjectDetector()
-        self.video_stream = video_stream or VideoStream("vids/IMG_9746.MOV")
+        self.video_stream = video_stream or VideoStream("vids/IMG_9747.MOV")
         self.process = psutil.Process(os.getpid())
         self.start_time = datetime.now()
         self.last_memory_print = 0
@@ -40,11 +40,11 @@ class Application:
 
             frame = cv2.resize(frame, (1080, 720))
             detection = self.detector.process_frame(frame)
-
+            print("Counted: ", self.detector.object_count)
             cv2.imshow("Detection", detection)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
-
+        print("Detected ", self.detector.object_count, " objects")
         self.video_stream.release()
         cv2.destroyAllWindows()
 
