@@ -8,9 +8,9 @@ from datetime import datetime
 from prometheus_client import Gauge, start_http_server
 
 class Application:
-    def __init__(self):
-        self.detector = ObjectDetector()
-        self.video_stream = VideoStream()
+    def __init__(self, video_stream=None, detector=None):
+        self.detector = detector or ObjectDetector()
+        self.video_stream = video_stream or VideoStream(source=0)
         self.process = psutil.Process(os.getpid())
         self.start_time = datetime.now()
         self.last_memory_print = 0
