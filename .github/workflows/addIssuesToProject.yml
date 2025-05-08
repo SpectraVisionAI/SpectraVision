@@ -1,0 +1,14 @@
+name: Add Issues to Project
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add_issue_to_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add issue to project
+        uses: actions/add-to-project@v0.3.0
+        with:
+          project-url: https://github.com/orgs/SpectraVisionAI/projects/1/
+

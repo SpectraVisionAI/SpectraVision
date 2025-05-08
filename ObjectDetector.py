@@ -24,7 +24,7 @@ class ObjectDetector:
         return cv2.pointPolygonTest(self.region_points, point, False) >= 0
 
     def process_frame(self, frame):
-        results = self.model.track(frame, persist=True, classes=[0,2])[0]
+        results = self.model.track(frame, persist=True, classes=[0,2], conf=0.6)[0]
 
         if results.boxes.id is not None:
             for box, track_id, cls in zip(results.boxes.xyxy, results.boxes.id, results.boxes.cls):
