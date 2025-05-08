@@ -4,7 +4,7 @@ from main import Application
 import os
 
 
-def run_test(video_path, expected_count, model_path):
+def run_test(video_path, model_path):
     detector = ObjectDetector(model_path=model_path)
     stream = VideoStream(video_path)
     app = Application(video_stream=stream, detector=detector)

@@ -5,7 +5,7 @@ from ultralytics import YOLO, solutions
 
 
 class ObjectDetector:
-    def __init__(self, model_path="models/yolo12n.pt", conf=0.6):
+    def __init__(self, model_path="models/yolo11n.pt", conf=0.6):
         """
         Initializes the ObjectDetector class by loading the YOLO11 model.
 

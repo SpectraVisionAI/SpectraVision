@@ -10,7 +10,7 @@ from datetime import datetime
 class Application:
     def __init__(self, video_stream=None, detector=None):
         self.detector = detector or ObjectDetector()
-        self.video_stream = video_stream or VideoStream("vids/IMG_9747.MOV")
+        self.video_stream = video_stream or VideoStream(source=0)
         self.process = psutil.Process(os.getpid())
         self.start_time = datetime.now()
         self.last_memory_print = 0
